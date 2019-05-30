@@ -6,6 +6,14 @@
     font-family: 'Work Sans', sans-serif;
 }
 
+i {
+  margin-right: 10px;
+}
+
+/***
+****MENU
+***/
+
 #menu {
   width: 18%;
   height: 100vh;
@@ -36,6 +44,7 @@
   padding: 15px;
   border-bottom: 1px solid #FFF;
   color: #FFF;
+  cursor: pointer;
 }
 
 #menu > nav > ul > li:hover {
@@ -43,14 +52,14 @@
 }
 
 .action {
-  
-  color: #f93;
+  color: #f93 !important;
   border-right: 6px solid #f93;
 }
 
-i {
-  margin-right: 10px;
-}
+
+/***
+****VIEW
+***/
 
 #conteudo {
   width: 82%;
@@ -67,6 +76,7 @@ i {
   border-radius: 15px;
   margin: 30px;
   padding: 20px;
+  background-color: #FFF;
 }
 
 #conteudo > .title > .subtitle {
@@ -78,7 +88,13 @@ i {
   border-radius: 15px;
   margin: 30px;
   padding: 30px;
+  background-color: #FFF;
 }
+
+
+/***
+****HOME
+***/
 
 #conteudo > .article > .row > .box {
   display: flex;
@@ -95,6 +111,43 @@ i {
 #conteudo > .article > .row > .box i {
   font-size: 80px;
   padding: 15px;
+}
+
+#conteudo > .article > .row > .box > .text-box {
+  float: right;
+}
+
+
+/***
+****CONFIG
+***/
+
+#conteudo > .article .nav-link {
+  color: #f93;
+}
+
+#conteudo > .article .active {
+  color: #37474f;
+}
+
+#conteudo > .article form {
+ margin-top: 20px;
+}
+
+#conteudo > .article form input[type=text], 
+#conteudo > .article form select, 
+#conteudo > .article form textarea  {border-color: #f93; color: #37474f;}
+
+#conteudo > .article form label {
+  font-weight: bold;
+  color: #37474f;
+}
+
+#conteudo > .article form .btn {
+  margin: 15px;
+  background-color: #f93;
+  width: 300px;
+  color: #37474f;
 }
 
 
