@@ -214,6 +214,7 @@ i {
 
 #conteudo > .article table i {
   font-size: 25px;
+  cursor: pointer;
 }
 
 #conteudo > .article table thead {
@@ -222,7 +223,11 @@ i {
 }
 
 
-
+.btn-modal {
+  background-color: #f93;
+  color: #FFF;
+  font-weight: bold;
+}
 
 /***
 ****MEDIAS

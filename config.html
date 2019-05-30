@@ -106,11 +106,11 @@
                 <h2>Animais</h2>
               </div>
               <div class="procurar-animais">
-                  <i class="fas fa-search"></i>
-                  <input type="text" class="form-control" id="procurarAnimais" placeholder="Pesquisar">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" id="procurarAnimais" placeholder="Pesquisar">
               </div>
             </div>
-            <table class="table text-center">
+            <table class="table text-center" id="tabelaAnimais">
               <thead>
                 <tr>
                   <th scope="col">#ID</th>
@@ -141,14 +141,14 @@
                   <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">2</th>
                   <td>
                     <div class="avatar-list">
                       <img src="./img/avatar.png" alt="Avatar" height="50px;">
                     </div>
                   </td>
-                  <td>Thanos</td>
-                  <td>Médio</td>
+                  <td>Bolinha</td>
+                  <td>Grande</td>
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
@@ -156,14 +156,14 @@
                   <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">3</th>
                   <td>
                     <div class="avatar-list">
                       <img src="./img/avatar.png" alt="Avatar" height="50px;">
                     </div>
                   </td>
-                  <td>Thanos</td>
-                  <td>Médio</td>
+                  <td>Feijão</td>
+                  <td>Grande</td>
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
@@ -171,14 +171,14 @@
                   <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">4</th>
                   <td>
                     <div class="avatar-list">
                       <img src="./img/avatar.png" alt="Avatar" height="50px;">
                     </div>
                   </td>
-                  <td>Thanos</td>
-                  <td>Médio</td>
+                  <td>Pingo</td>
+                  <td>Pequeno</td>
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
@@ -186,18 +186,18 @@
                   <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">5</th>
                   <td>
                     <div class="avatar-list">
                       <img src="./img/avatar.png" alt="Avatar" height="50px;">
                     </div>
                   </td>
-                  <td>Thanos</td>
+                  <td>Bolacha</td>
                   <td>Médio</td>
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
                   <td><i class="fas fa-trash-alt"></i></td>
                 </tr>
               </tbody>
@@ -207,11 +207,34 @@
 
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
       </div>
-
-
-
     </div>
+  </div>
 
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="editarAnimais" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar animais</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-modal">Salvar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 
