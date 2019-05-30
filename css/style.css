@@ -14,13 +14,23 @@
   float: left;
 }
 
-nav > ul {
+#menu > .user {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFF;
+}
+
+#menu > nav > ul {
+  border-top: 1px solid #FFF;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-nav > ul > li {
+#menu > nav > ul > li {
   width: 100%;
   list-style: none;
   padding: 15px;
@@ -28,7 +38,7 @@ nav > ul > li {
   color: #FFF;
 }
 
-nav > ul > li:hover {
+#menu > nav > ul > li:hover {
   border-right: 6px solid #f93;
 }
 
@@ -51,4 +61,40 @@ i {
   color: #37474f;
   float: right;
 }
+
+#conteudo > .title {
+  border: 1px solid #37474f;
+  border-radius: 15px;
+  margin: 30px;
+  padding: 20px;
+}
+
+#conteudo > .title > .subtitle {
+  color: #b0bec5;
+}
+
+#conteudo > .article {
+  border: 1px solid #37474f;
+  border-radius: 15px;
+  margin: 30px;
+  padding: 30px;
+}
+
+#conteudo > .article > .row > .box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 450px;
+  max-width: 540px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+#conteudo > .article > .row > .box i {
+  font-size: 80px;
+  padding: 15px;
+}
+
 
