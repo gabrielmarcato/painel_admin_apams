@@ -45,14 +45,17 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Profile</a>
+            aria-selected="false">Usuários</a>
         </li>
       </ul>
 
       <div class="tab-content" id="tabConfigContent">
 
         <div class="tab-pane fade show active" id="animal" role="tabpanel" aria-labelledby="animal-tab">
-          <form class="row">
+          <div class="title-tab">
+            <h2>Cadastrar Animais</h2>
+          </div>
+          <form action="" method="" class="row">
             <div class="form-group col-md-12">
               <label>Nome</label>
               <input type="text" class="form-control" id="name" placeholder="Nome do animal">
@@ -99,11 +102,10 @@
             <button type="submit" class="btn">Salvar</button>
           </form>
           <hr>
-
           <div>
             <div class="title-list">
               <div>
-                <h2>Animais</h2>
+                <h2>Listar Animais</h2>
               </div>
               <div class="procurar-animais">
                 <i class="fas fa-search"></i>
@@ -125,6 +127,7 @@
                 </tr>
               </thead>
               <tbody>
+
                 <tr>
                   <th scope="row">1</th>
                   <td>
@@ -137,9 +140,11 @@
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit"></i></td>
-                  <td><i class="fas fa-trash-alt"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"
+                      onclick="selectedRowToInput()"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
                 </tr>
+
                 <tr>
                   <th scope="row">2</th>
                   <td>
@@ -152,8 +157,8 @@
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit"></i></td>
-                  <td><i class="fas fa-trash-alt"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
                 </tr>
                 <tr>
                   <th scope="row">3</th>
@@ -167,8 +172,8 @@
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit"></i></td>
-                  <td><i class="fas fa-trash-alt"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
                 </tr>
                 <tr>
                   <th scope="row">4</th>
@@ -182,8 +187,8 @@
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit"></i></td>
-                  <td><i class="fas fa-trash-alt"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
                 </tr>
                 <tr>
                   <th scope="row">5</th>
@@ -198,36 +203,167 @@
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
                   <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
-                  <td><i class="fas fa-trash-alt"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="title-tab">
+            <h2>Cadastrar Usuários</h2>
+          </div>
+          <form action="" method="" class="row">
+            <div class="form-group col-md-12">
+              <label>Nome</label>
+              <input type="text" class="form-control" id="nameProfile" placeholder="Nome do usuário">
+            </div>
+            <div class="form-group col-md-12">
+              <label>E-mail</label>
+              <input type="email" class="form-control" id="emailProfile" placeholder="E-mail do usuário">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Senha</label>
+              <input type="text" class="form-control" id="passProfile" placeholder="Senha do usuário">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Permissão</label>
+              <select class="form-control" id="typeAccount">
+                <option selected disabled>Ex: Comum, Moderador ou Administrador</option>
+                <option>Comum</option>
+                <option>Moderador</option>
+                <option>Administrador</option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Salvar</button>
+          </form>
+          <hr>
+          <div>
+            <div class="title-list">
+              <div>
+                <h2>Usuários</h2>
+              </div>
+              <div class="procurar-animais">
+                <i class="fas fa-search"></i>
+                <input type="text" class="form-control" id="procurarProfile" placeholder="Pesquisar">
+              </div>
+            </div>
+            <table class="table text-center" id="tabelaProfile">
+              <thead>
+                <tr>
+                  <th scope="col">#ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Contato</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Permissão</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Gabriel Marcato</td>
+                  <td>gabrielomarcato@gmail.com</td>
+                  <td>(66) 99614-0353</td>
+                  <td>Ativo</td>
+                  <td>Administrador</td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Mauro Moura</td>
+                  <td>mauromoura96@hotmail.com</td>
+                  <td>(xx) xxxxx-xxxx</td>
+                  <td>Ativo</td>
+                  <td>Administrador</td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Rodrigo Paiva</td>
+                  <td>rodrigojpaiva@gmail.com</td>
+                  <td>(xx) xxxxx-xxxx</td>
+                  <td>Ativo</td>
+                  <td>Moderador</td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+  </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="editarAnimais" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="editarAnimais" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar animais</h5>
+          <h5 class="modal-title">Editar animais</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <form action="" method="">
+            <div class="form-group" id="idModalEditarAnimal">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idAnimal" placeholder="Nome do animal">
+            </div>
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" class="form-control" id="nameAnimal" placeholder="Nome do animal">
+            </div>
+            <div class="form-group">
+              <label>Porte</label>
+              <select class="form-control" id="porteAnimal">
+                <option selected disabled>Ex: Grande, Medio ou Pequeno</option>
+                <option>Grande</option>
+                <option>Médio</option>
+                <option>Pequeno</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Tipo</label>
+              <select class="form-control" id="typeAnimal">
+                <option selected disabled>Ex: Cachorro, Gato ou Outro</option>
+                <option>Cachorro</option>
+                <option>Gato</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Processo de adoção</label>
+              <select class="form-control" id="adoptedAnimal">
+                <option selected disabled>Ex: Adotado, Aguardando ou Processo</option>
+                <option>Adotado</option>
+                <option>Aguardando</option>
+                <option>Processo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Selecione a imagem</label>
+              <input type="file" id="fileElemModal">
+            </div>
+            <div class="form-group">
+              <label for="description">Descrição</label>
+              <textarea class="form-control" id="descriptionAnimal" placeholder="Insira uma descrição sobre o animal..."
+                rows="3"></textarea>
+            </div>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-modal">Salvar</button>
@@ -237,6 +373,114 @@
     </div>
   </div>
 
+  <div class="modal fade" id="removerAnimais" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remover animais</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Deseja remover este cadastro?<p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block btn-modal">Sim</button>
+          <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="editarProfile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="">
+            <div class="form-group" id="idModalEditarProfile">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idProfile">
+            </div>
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" class="form-control" id="nomeProfile" placeholder="Nome do usuário">
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" class="form-control" id="mailProfile" placeholder="E-mail do usuário">
+            </div>
+            <div class="form-group">
+              <label>Senha</label>
+              <input type="text" class="form-control" id="passProfile" placeholder="Senha do usuário">
+            </div>
+            <div class="form-group">
+              <label>Celular</label>
+              <input type="text" class="form-control" id="celProfile" placeholder="Numero (xx) xxxxx-xxxx">
+            </div>
+            <div class="form-group">
+              <label>Permissão</label>
+              <select class="form-control" id="tipoConta">
+                <option selected disabled>Ex: Comum, Moderador ou Administrador</option>
+                <option>Comum</option>
+                <option>Moderador</option>
+                <option>Administrador</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-modal">Salvar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="removerProfile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remover usuário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Deseja remover este cadastro?<p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block btn-modal">Sim</button>
+          <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="getEmailProfile" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar e-mail</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>A mensagem chegará em breve!<p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-block btn-modal" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

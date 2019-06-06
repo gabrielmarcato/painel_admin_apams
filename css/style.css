@@ -133,11 +133,19 @@ i {
   font-weight: bold;
 }
 
+#conteudo > .article .title-tab h2 {
+  margin-top: 20px;
+  font-weight: bold;
+  border-left: 5px solid #f93;
+  padding-left: 5px;
+}
+
 #conteudo > .article form {
  margin-top: 20px;
 }
 
 #conteudo > .article form input[type=text], 
+#conteudo > .article form input[type=email],
 #conteudo > .article form select, 
 #conteudo > .article form textarea  {border-color: #f93; color: #37474f;}
 
@@ -195,6 +203,12 @@ i {
   align-items: center;
 }
 
+#conteudo > .article .title-list h2 {
+  font-weight: bold;
+  border-left: 5px solid #f93;
+  padding-left: 5px;
+}
+
 #conteudo > .article .title-list .procurar-animais {
   display: flex;
   flex-direction: row;
@@ -202,7 +216,6 @@ i {
   align-items: center;
   width: 400px;
 }
-
 
 #conteudo > .article table {
   border: 1px solid #37474f;
@@ -222,12 +235,37 @@ i {
   background-color: #37474f;
 }
 
+/**MODAL**/
+#idModalEditarAnimal { display: none; }
+#idModalEditarProfile { display: none; }
+.modal form input[type=text], 
+.modal form input[type=email],
+.modal form select, 
+.modal form textarea  {border-color: #f93; color: #37474f;}
 
-.btn-modal {
+.modal form input[type=file] { display: none; }
+
+.modal form label {
+  font-weight: bold;
+  color: #37474f;
+}
+.modal form input[type=file] {
+  display: block;
+}
+.modal .btn-modal {
   background-color: #f93;
   color: #FFF;
   font-weight: bold;
 }
+.modal .btn-exit {
+  background-color: #585d5f;
+  color: #FFF;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+
+
 
 /***
 ****MEDIAS

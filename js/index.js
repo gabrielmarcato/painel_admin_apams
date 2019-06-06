@@ -2,25 +2,38 @@ $('#myModal').on('shown.bs.modal', function () {
   $('#myInput').trigger('focus')
 })
 
+
+/*** Input Pesquisa ***/
 window.onload = function () {
+  //Busca Animal
+  var filtroAnimais = document.getElementById('procurarAnimais');
+  var tabelaAnimais = document.getElementById('tabelaAnimais');
+  filtroAnimais.onkeyup = function () {
+    let nomeFiltro = filtroAnimais.value;
+    for (let i = 1; i < tabelaAnimais.rows.length; i++) {
+      let conteudoCelula = tabelaAnimais.rows[i].cells[2].innerText;
+      let corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+      tabelaAnimais.rows[i].style.display = corresponde ? '' : 'none';
+    }
+  };
   //Busca usuario
-  var filtro = document.getElementById('procurarAnimais');
-  var tabela = document.getElementById('tabelaAnimais');
-  filtro.onkeyup = function () {
-    var nomeFiltro = filtro.value;
-    for (var i = 1; i < tabela.rows.length; i++) {
-      var conteudoCelula = tabela.rows[i].cells[2].innerText;
-      var corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-      tabela.rows[i].style.display = corresponde ? '' : 'none';
+  var filtroProfile = document.getElementById('procurarProfile');
+  var tabelaProfile = document.getElementById('tabelaProfile');
+  filtroProfile.onkeyup = function () {
+    let nomeFiltro = filtroProfile.value;
+    for (let i = 1; i < tabelaProfile.rows.length; i++) {
+      let conteudoCelula = tabelaProfile.rows[i].cells[2].innerText;
+      let corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
+      tabelaProfile.rows[i].style.display = corresponde ? '' : 'none';
     }
   };
 }
 
-window.URL = window.URL || window.webkitURL;
 
+/*** Input selecionar imagem ***/
 const fileSelect = document.getElementById("fileSelect"),
-  fileElem = document.getElementById("fileElem"),
-  fileList = document.getElementById("fileList");
+      fileElem   = document.getElementById("fileElem"),
+      fileList   = document.getElementById("fileList");
 
 fileSelect.addEventListener("click", function (e) {
   if (fileElem) {
@@ -31,7 +44,7 @@ fileSelect.addEventListener("click", function (e) {
 
 function handleFiles(files) {
   if (!files.length) {
-    fileList.innerHTML = "<p>No files selected!</p>";
+    fileList.innerHTML = "<p>Nenhum arquivo selecionado!</p>";
   } else {
     fileList.innerHTML = "";
     const list = document.createElement("ul");
@@ -55,32 +68,73 @@ function handleFiles(files) {
   }
 }
 
-var  table = document.getElementById("tabelaAnimais")
 
+/*** Valores Modal Editar Animais ***/
+var rIndexAnimais, tableAnimais = document.getElementById("tabelaAnimais");
 
-// display selected row data into input text
 function selectedRowToInput() {
-
-  for (var i = 1; i < table.rows.length; i++) {
-    table.rows[i].onclick = function () {
-      // get the seected row index
-      document.getElementById("nomeUsuario").value = this.cells[1].innerHTML;
-      document.getElementById("emailUsuario").value = this.cells[2].innerHTML;
-      document.getElementById("nivelUsuario").value = this.cells[3].innerHTML;
+  for (var i = 1; i < tableAnimais.rows.length; i++) {
+    tableAnimais.rows[i].onclick = function () {
+      rIndexAnimais = this.rowIndex;
+      document.getElementById("idAnimal").value          = this.cells[0].innerHTML;
+      document.getElementById("nameAnimal").value        = this.cells[2].innerHTML;
+      document.getElementById("porteAnimal").value       = this.cells[3].innerHTML;
+      document.getElementById("typeAnimal").value        = this.cells[4].innerHTML;
+      document.getElementById("adoptedAnimal").value     = this.cells[5].innerHTML;
+      document.getElementById("descriptionAnimal").value = this.cells[6].innerHTML;
     };
   }
 }
 selectedRowToInput();
+
 function editHtmlTbleSelectedRow() {
-  var codigoUsuario = document.getElementById("codigoUsuario").value,
-    nomeUsuario = document.getElementById("nomeUsuario").value,
-    emailUsuario = document.getElementById("emailUsuario").value,
-    nivelUsuario = document.getElementById("nivelUsuario").value;
+  var idAnimal     = document.getElementById("idAnimal").value,
+      nomeAnimal   = document.getElementById("nameAnimal").value,
+      porteAnimal  = document.getElementById("porteAnimal").value,
+      tipoAnimal   = document.getElementById("typeAnimal").value;
+      statusAnimal = document.getElementById("adoptedAnimal").value;
+      sobreAnimal  = document.getElementById("descriptionAnimal").value;
   if (!checkEmptyInput()) {
-    table.rows[rIndex].cells[0].innerHTML = codigoUsuario;
-    table.rows[rIndex].cells[1].innerHTML = nomeUsuario;
-    table.rows[rIndex].cells[2].innerHTML = emailUsuario;
-    table.rows[rIndex].cells[3].innerHTML = nivelUsuario;
+    tableAnimais.rows[rIndexAnimais].cells[0].innerHTML = idAnimal;
+    tableAnimais.rows[rIndexAnimais].cells[1].innerHTML = nomeAnimal;
+    tableAnimais.rows[rIndexAnimais].cells[2].innerHTML = porteAnimal;
+    tableAnimais.rows[rIndexAnimais].cells[3].innerHTML = tipoAnimal;
+    tableAnimais.rows[rIndexAnimais].cells[3].innerHTML = statusAnimal;
+    tableAnimais.rows[rIndexAnimais].cells[3].innerHTML = sobreAnimal;
   }
 }
+
+
+/*** Valores Modal Editar Profile ***/
+var rIndexProfile, tabelaProfile = document.getElementById("tabelaProfile");
+
+function selectedRowToInputProfile() {
+  for (var i = 1; i < tabelaProfile.rows.length; i++) {
+    tabelaProfile.rows[i].onclick = function () {
+      rIndexProfile = this.rowIndexProfile;
+      document.getElementById("idProfile").value    = this.cells[0].innerHTML;
+      document.getElementById("nomeProfile").value  = this.cells[1].innerHTML;
+      document.getElementById("mailProfile").value = this.cells[2].innerHTML;
+      document.getElementById("celProfile").value   = this.cells[3].innerHTML;
+      document.getElementById("tipoConta").value  = this.cells[5].innerHTML;
+    };
+  }
+}
+selectedRowToInputProfile();
+
+function editHtmlTbleSelectedRowProfile() {
+  var idProfile     = document.getElementById("idProfile").value,
+      nomeProfile   = document.getElementById("nomeProfile").value,
+      emailProfile  = document.getElementById("mailProfile").value,
+      celProfile    = document.getElementById("celProfile").value;
+      tipoProfile   = document.getElementById("tipoConta").value;
+  if (!checkEmptyInput()) {
+    tabelaProfile.rows[rIndexProfile].cells[0].innerHTML = idProfile;
+    tabelaProfile.rows[rIndexProfile].cells[1].innerHTML = nomeProfile;
+    tabelaProfile.rows[rIndexProfile].cells[2].innerHTML = emailProfile;
+    tabelaProfile.rows[rIndexProfile].cells[3].innerHTML = celProfile;
+    tabelaProfile.rows[rIndexProfile].cells[5].innerHTML = tipoProfile;
+  }
+}
+
 
