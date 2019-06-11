@@ -55,14 +55,14 @@
           <div class="title-tab">
             <h2>Cadastrar Animais</h2>
           </div>
-          <form action="" method="" class="row">
+          <form action="" method="" class="row" id="cadastrarAnimal">
             <div class="form-group col-md-12">
               <label>Nome</label>
-              <input type="text" class="form-control" id="name" placeholder="Nome do animal">
+              <input type="text" class="form-control" name="name" id="name" placeholder="Nome do animal">
             </div>
             <div class="form-group col-md-6">
               <label>Porte</label>
-              <select class="form-control" id="size">
+              <select class="form-control" name="size" id="size">
                 <option selected disabled>Ex: Grande, Medio ou Pequeno</option>
                 <option>Grande</option>
                 <option>Medio</option>
@@ -71,7 +71,7 @@
             </div>
             <div class="form-group col-md-6">
               <label>Tipo</label>
-              <select class="form-control" id="type">
+              <select class="form-control" name="type" id="type">
                 <option selected disabled>Ex: Cachorro, Gato ou Outro</option>
                 <option>Cachorro</option>
                 <option>Gato</option>
@@ -80,7 +80,7 @@
             </div>
             <div class="form-group col-md-6">
               <label>Processo de adoção</label>
-              <select class="form-control" id="adopted">
+              <select class="form-control" name="adopted" id="adopted">
                 <option selected disabled>Ex: Adotado, Aguardando ou Processo</option>
                 <option>Adotado</option>
                 <option>Aguardando</option>
@@ -96,8 +96,8 @@
             </div>
             <div class="form-group col-md-12">
               <label for="description">Descrição</label>
-              <textarea class="form-control" id="description" placeholder="Insira uma descrição sobre o animal..."
-                rows="3"></textarea>
+              <textarea class="form-control" name="description" id="description"
+                placeholder="Insira uma descrição sobre o animal..." rows="3"></textarea>
             </div>
             <button type="submit" class="btn">Salvar</button>
           </form>
@@ -140,71 +140,11 @@
                   <td>Cachorro</td>
                   <td>Aguardando</td>
                   <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"
-                      onclick="selectedRowToInput()"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais" title="Editar"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais" title="Remover"></i>
+                  </td>
                 </tr>
 
-                <tr>
-                  <th scope="row">2</th>
-                  <td>
-                    <div class="avatar-list">
-                      <img src="./img/avatar.png" alt="Avatar" height="50px;">
-                    </div>
-                  </td>
-                  <td>Bolinha</td>
-                  <td>Grande</td>
-                  <td>Cachorro</td>
-                  <td>Aguardando</td>
-                  <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>
-                    <div class="avatar-list">
-                      <img src="./img/avatar.png" alt="Avatar" height="50px;">
-                    </div>
-                  </td>
-                  <td>Feijão</td>
-                  <td>Grande</td>
-                  <td>Cachorro</td>
-                  <td>Aguardando</td>
-                  <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>
-                    <div class="avatar-list">
-                      <img src="./img/avatar.png" alt="Avatar" height="50px;">
-                    </div>
-                  </td>
-                  <td>Pingo</td>
-                  <td>Pequeno</td>
-                  <td>Cachorro</td>
-                  <td>Aguardando</td>
-                  <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>
-                    <div class="avatar-list">
-                      <img src="./img/avatar.png" alt="Avatar" height="50px;">
-                    </div>
-                  </td>
-                  <td>Bolacha</td>
-                  <td>Médio</td>
-                  <td>Cachorro</td>
-                  <td>Aguardando</td>
-                  <td>Thanos foi abandonado...</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais"></i></td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -214,22 +154,24 @@
           <div class="title-tab">
             <h2>Cadastrar Usuários</h2>
           </div>
-          <form action="" method="" class="row">
+          <form action="" method="" class="row" id="cadastrarUsuario">
             <div class="form-group col-md-12">
               <label>Nome</label>
-              <input type="text" class="form-control" id="nameProfile" placeholder="Nome do usuário">
+              <input type="text" class="form-control" name="nameProfile" id="nameProfile" placeholder="Nome do usuário">
             </div>
             <div class="form-group col-md-12">
               <label>E-mail</label>
-              <input type="email" class="form-control" id="emailProfile" placeholder="E-mail do usuário">
+              <input type="email" class="form-control" name="emailProfile" id="emailProfile"
+                placeholder="E-mail do usuário">
             </div>
             <div class="form-group col-md-6">
               <label>Senha</label>
-              <input type="text" class="form-control" id="passProfile" placeholder="Senha do usuário">
+              <input type="text" class="form-control" name="passProfile" id="passProfile"
+                placeholder="Senha do usuário">
             </div>
             <div class="form-group col-md-6">
               <label>Permissão</label>
-              <select class="form-control" id="typeAccount">
+              <select class="form-control" name="typeAccount" id="typeAccount">
                 <option selected disabled>Ex: Comum, Moderador ou Administrador</option>
                 <option>Comum</option>
                 <option>Moderador</option>
@@ -271,32 +213,13 @@
                   <td>(66) 99614-0353</td>
                   <td>Ativo</td>
                   <td>Administrador</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
-                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile" title="Editar"></i></td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile" title="Remover"></i>
+                  </td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"
+                      title="Enviar e-mail"></i></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Mauro Moura</td>
-                  <td>mauromoura96@hotmail.com</td>
-                  <td>(xx) xxxxx-xxxx</td>
-                  <td>Ativo</td>
-                  <td>Administrador</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
-                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Rodrigo Paiva</td>
-                  <td>rodrigojpaiva@gmail.com</td>
-                  <td>(xx) xxxxx-xxxx</td>
-                  <td>Ativo</td>
-                  <td>Moderador</td>
-                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile"></i></td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile"></i></td>
-                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"></i></td>
-                </tr>
+
               </tbody>
             </table>
           </div>
@@ -318,18 +241,18 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="">
+          <form action="" method="" id="editarAnimal">
             <div class="form-group" id="idModalEditarAnimal">
               <label>ID</label>
               <input type="text" class="form-control" id="idAnimal" placeholder="Nome do animal">
             </div>
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" id="nameAnimal" placeholder="Nome do animal">
+              <input type="text" class="form-control" name="nameAnimal" id="nameAnimal" placeholder="Nome do animal">
             </div>
             <div class="form-group">
               <label>Porte</label>
-              <select class="form-control" id="porteAnimal">
+              <select class="form-control" name="porteAnimal" id="porteAnimal">
                 <option selected disabled>Ex: Grande, Medio ou Pequeno</option>
                 <option>Grande</option>
                 <option>Médio</option>
@@ -338,7 +261,7 @@
             </div>
             <div class="form-group">
               <label>Tipo</label>
-              <select class="form-control" id="typeAnimal">
+              <select class="form-control" name="typeAnimal" id="typeAnimal">
                 <option selected disabled>Ex: Cachorro, Gato ou Outro</option>
                 <option>Cachorro</option>
                 <option>Gato</option>
@@ -347,7 +270,7 @@
             </div>
             <div class="form-group">
               <label>Processo de adoção</label>
-              <select class="form-control" id="adoptedAnimal">
+              <select class="form-control" name="adoptedAnimal" id="adoptedAnimal">
                 <option selected disabled>Ex: Adotado, Aguardando ou Processo</option>
                 <option>Adotado</option>
                 <option>Aguardando</option>
@@ -360,14 +283,12 @@
             </div>
             <div class="form-group">
               <label for="description">Descrição</label>
-              <textarea class="form-control" id="descriptionAnimal" placeholder="Insira uma descrição sobre o animal..."
-                rows="3"></textarea>
+              <textarea class="form-control" name="descriptionAnimal" id="descriptionAnimal"
+                placeholder="Insira uma descrição sobre o animal..." rows="3"></textarea>
             </div>
+            <button type="submit" class="btn btn-block btn-modal">Salvar</button>
+            <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Sair</button>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-modal">Salvar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
         </div>
       </div>
     </div>
@@ -403,41 +324,41 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="">
+          <form action="" method="" id="editarUsuario">
             <div class="form-group" id="idModalEditarProfile">
               <label>ID</label>
               <input type="text" class="form-control" id="idProfile">
             </div>
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" id="nomeProfile" placeholder="Nome do usuário">
+              <input type="text" class="form-control" name="nomeProfile" id="nomeProfile" placeholder="Nome do usuário">
             </div>
             <div class="form-group">
               <label>E-mail</label>
-              <input type="email" class="form-control" id="mailProfile" placeholder="E-mail do usuário">
+              <input type="email" class="form-control" name="mailProfile" id="mailProfile"
+                placeholder="E-mail do usuário">
             </div>
             <div class="form-group">
               <label>Senha</label>
-              <input type="text" class="form-control" id="passProfile" placeholder="Senha do usuário">
+              <input type="text" class="form-control" name="passProfile" id="passProfile"
+                placeholder="Senha do usuário">
             </div>
             <div class="form-group">
               <label>Celular</label>
-              <input type="text" class="form-control" id="celProfile" placeholder="Numero (xx) xxxxx-xxxx">
+              <input type="text" class="form-control celNum" id="celProfile" placeholder="(xx) xxxxx-xxxx">
             </div>
             <div class="form-group">
               <label>Permissão</label>
-              <select class="form-control" id="tipoConta">
+              <select class="form-control" name="tipoConta" id="tipoConta">
                 <option selected disabled>Ex: Comum, Moderador ou Administrador</option>
                 <option>Comum</option>
                 <option>Moderador</option>
                 <option>Administrador</option>
               </select>
             </div>
+            <button type="submit" class="btn btn-block btn-modal">Salvar</button>
+            <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Sair</button>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-modal">Salvar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Sair</button>
         </div>
       </div>
     </div>
@@ -482,16 +403,12 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
+  <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="js/index.js"></script>
 </body>
 

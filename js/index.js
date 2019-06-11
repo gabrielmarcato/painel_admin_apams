@@ -1,8 +1,3 @@
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
-
 /*** Input Pesquisa ***/
 window.onload = function () {
   //Busca Animal
@@ -32,8 +27,8 @@ window.onload = function () {
 
 /*** Input selecionar imagem ***/
 const fileSelect = document.getElementById("fileSelect"),
-      fileElem   = document.getElementById("fileElem"),
-      fileList   = document.getElementById("fileList");
+  fileElem = document.getElementById("fileElem"),
+  fileList = document.getElementById("fileList");
 
 fileSelect.addEventListener("click", function (e) {
   if (fileElem) {
@@ -76,11 +71,11 @@ function selectedRowToInput() {
   for (var i = 1; i < tableAnimais.rows.length; i++) {
     tableAnimais.rows[i].onclick = function () {
       rIndexAnimais = this.rowIndex;
-      document.getElementById("idAnimal").value          = this.cells[0].innerHTML;
-      document.getElementById("nameAnimal").value        = this.cells[2].innerHTML;
-      document.getElementById("porteAnimal").value       = this.cells[3].innerHTML;
-      document.getElementById("typeAnimal").value        = this.cells[4].innerHTML;
-      document.getElementById("adoptedAnimal").value     = this.cells[5].innerHTML;
+      document.getElementById("idAnimal").value = this.cells[0].innerHTML;
+      document.getElementById("nameAnimal").value = this.cells[2].innerHTML;
+      document.getElementById("porteAnimal").value = this.cells[3].innerHTML;
+      document.getElementById("typeAnimal").value = this.cells[4].innerHTML;
+      document.getElementById("adoptedAnimal").value = this.cells[5].innerHTML;
       document.getElementById("descriptionAnimal").value = this.cells[6].innerHTML;
     };
   }
@@ -88,12 +83,12 @@ function selectedRowToInput() {
 selectedRowToInput();
 
 function editHtmlTbleSelectedRow() {
-  var idAnimal     = document.getElementById("idAnimal").value,
-      nomeAnimal   = document.getElementById("nameAnimal").value,
-      porteAnimal  = document.getElementById("porteAnimal").value,
-      tipoAnimal   = document.getElementById("typeAnimal").value;
-      statusAnimal = document.getElementById("adoptedAnimal").value;
-      sobreAnimal  = document.getElementById("descriptionAnimal").value;
+  var idAnimal = document.getElementById("idAnimal").value,
+    nomeAnimal = document.getElementById("nameAnimal").value,
+    porteAnimal = document.getElementById("porteAnimal").value,
+    tipoAnimal = document.getElementById("typeAnimal").value;
+  statusAnimal = document.getElementById("adoptedAnimal").value;
+  sobreAnimal = document.getElementById("descriptionAnimal").value;
   if (!checkEmptyInput()) {
     tableAnimais.rows[rIndexAnimais].cells[0].innerHTML = idAnimal;
     tableAnimais.rows[rIndexAnimais].cells[1].innerHTML = nomeAnimal;
@@ -112,22 +107,22 @@ function selectedRowToInputProfile() {
   for (var i = 1; i < tabelaProfile.rows.length; i++) {
     tabelaProfile.rows[i].onclick = function () {
       rIndexProfile = this.rowIndexProfile;
-      document.getElementById("idProfile").value    = this.cells[0].innerHTML;
-      document.getElementById("nomeProfile").value  = this.cells[1].innerHTML;
+      document.getElementById("idProfile").value = this.cells[0].innerHTML;
+      document.getElementById("nomeProfile").value = this.cells[1].innerHTML;
       document.getElementById("mailProfile").value = this.cells[2].innerHTML;
-      document.getElementById("celProfile").value   = this.cells[3].innerHTML;
-      document.getElementById("tipoConta").value  = this.cells[5].innerHTML;
+      document.getElementById("celProfile").value = this.cells[3].innerHTML;
+      document.getElementById("tipoConta").value = this.cells[5].innerHTML;
     };
   }
 }
 selectedRowToInputProfile();
 
 function editHtmlTbleSelectedRowProfile() {
-  var idProfile     = document.getElementById("idProfile").value,
-      nomeProfile   = document.getElementById("nomeProfile").value,
-      emailProfile  = document.getElementById("mailProfile").value,
-      celProfile    = document.getElementById("celProfile").value;
-      tipoProfile   = document.getElementById("tipoConta").value;
+  var idProfile = document.getElementById("idProfile").value,
+    nomeProfile = document.getElementById("nomeProfile").value,
+    emailProfile = document.getElementById("mailProfile").value,
+    celProfile = document.getElementById("celProfile").value;
+  tipoProfile = document.getElementById("tipoConta").value;
   if (!checkEmptyInput()) {
     tabelaProfile.rows[rIndexProfile].cells[0].innerHTML = idProfile;
     tabelaProfile.rows[rIndexProfile].cells[1].innerHTML = nomeProfile;
@@ -137,4 +132,103 @@ function editHtmlTbleSelectedRowProfile() {
   }
 }
 
+$(document).ready(function () {
 
+  var maskBehavior = function (val) {
+    return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
+  },
+    options = {
+      onKeyPress: function (val, e, field, options) {
+        field.mask(maskBehavior.apply({}, arguments), options);
+      }
+    };
+
+  $('.celNum').mask(maskBehavior, options);
+
+  $("#cadastrarAnimal").validate({
+    rules: {
+      name: {
+        required: true,
+        maxlength: 100,
+        minlength: 2,
+      },
+      size: {
+        required: true,
+      },
+      type: {
+        required: true,
+      },
+      adopted: {
+        required: true,
+      },
+      description: {
+        required: true,
+        maxlength: 100,
+        minlength: 5,
+      }
+    }
+  }),
+    $("#cadastrarUsuario").validate({
+      rules: {
+        nameProfile: {
+          required: true,
+          maxlength: 50,
+          minlength: 5,
+        },
+        emailProfile: {
+          required: true,
+        },
+        passProfile: {
+          required: true,
+          maxlength: 10,
+          minlength: 4,
+        },
+        typeAccount: {
+          required: true,
+        }
+      }
+    }),
+    $("#editarAnimal").validate({
+      rules: {
+        nameAnimal: {
+          required: true,
+          maxlength: 50,
+          minlength: 2,
+        },
+        porteAnimal: {
+          required: true,
+        },
+        typeAnimal: {
+          required: true,
+        },
+        adoptedAnimal: {
+          required: true,
+        },
+        descriptionAnimal: {
+          required: true,
+          maxlength: 60,
+          minlength: 5,
+        }
+      }
+    }),
+    $("#editarUsuario").validate({
+      rules: {
+        nomeProfile: {
+          required: true,
+          maxlength: 50,
+          minlength: 2,
+        },
+        mailProfile: {
+          required: true,
+        },
+        passProfile: {
+          required: true,
+          maxlength: 10,
+          minlength: 4,
+        },
+        tipoConta: {
+          required: true,
+        }
+      }
+    })
+})

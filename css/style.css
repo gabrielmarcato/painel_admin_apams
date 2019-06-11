@@ -93,6 +93,11 @@ i {
   background-color: #FFF;
 }
 
+.error {
+  color: red !important;
+  margin-top: 5px;
+}
+
 
 /***
 ****HOME
