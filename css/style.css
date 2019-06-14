@@ -15,45 +15,58 @@ i {
 ***/
 
 #menu {
+  float: left;
   width: 18%;
   height: 100vh;
+  background-color: #222;
+  color: #fff;
   position: fixed;
-  background-color: #37474f;
-  float: left;
+  z-index: 2;
 }
 
-#menu > .user {
-  padding: 25px;
+.user {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  color: #FFF;
+  height: 25vh;
 }
 
-#menu > nav > ul {
-  border-top: 1px solid #FFF;
+.user > h5 {
+  margin-top: 10px;
+}
+
+#menu ul{
+  list-style:none;
+  margin-top:0;
+  padding:0
+}
+
+#menu ul li {
+  font-size: 18px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  height: 65px;
+  border-bottom: 1px solid #2a2a2a;
 }
 
-#menu > nav > ul > li {
-  width: 100%;
-  list-style: none;
-  padding: 15px;
-  border-bottom: 1px solid #FFF;
-  color: #FFF;
-  cursor: pointer;
+#menu > ul > li > a{
+  border-left:4px solid #222;
+  padding: 5px 0;
 }
 
-#menu > nav > ul > li:hover {
-  border-right: 6px solid #f93;
+#menu ul li i{
+  margin-left:20px;
 }
 
-.action {
-  color: #f93 !important;
-  border-right: 6px solid #f93;
+#menu ul li:hover{
+  background-color:#111;
+  border-left: 4px solid #f93;
+  color:#f93;
+}
+
+#showmenu {
+display: none;
 }
 
 
@@ -275,8 +288,117 @@ i {
 /***
 ****MEDIAS
 ***/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1300px) {
+  /***MENU***/
+  #menu{ position:fixed;
+      background-color:#222;
+      height:100%;
+      z-index:10;
+      width:280px;
+      color:#bbb;
+      top:0;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+      opacity:1;
+  }
 
+  .left{left:-280px;}
+  .show{left:0;}
+  
+  #showmenu{
+    background-color: #585d5f;
+      display: block;
+      margin-left:100%;
+      position:absolute;
+      top:0;
+      padding:12px 14px 9px 20px;
+      font-size:1.3em;
+      color:#f93;
+      border: 1px solid black;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+  }
+  /***CONTEUDO***/
+  #conteudo {
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+  }
+
+  #conteudo {
+    margin: 0;
+    padding: 0;
+  }
+
+  #conteudo > .title, #conteudo > .article {
+    margin-top: 60px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 2rem!important;
+  }
+  h2 {
+    font-size: 1.8rem!important;
+  }
+  h5 {
+    font-size: 1rem!important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  /**HOME**/
+  #conteudo > .article {
+    padding: 0;
+  }
+  #conteudo > .article > .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  #conteudo > .article > .row > .box {
+    min-width: 80vw;
+    max-width: 80vw;
+  }
+  #conteudo > .article > .row > .box h3 {
+    font-size: 1.2rem!important;
+  }
+
+  #conteudo > .article > .row > .box h1 {
+    font-size: 2rem!important;
+  }
+
+  /**CONFIG**/
+  .resp-table {
+    display: none;
+  }
+  #conteudo > .article .title-list {
+    flex-direction: column;
+  }
+
+  #conteudo > .article .title-list .procurar-animais input[type=text] {
+    width: 65vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media only screen and (max-width: 365px) { 
+  #conteudo > .article > .row > .box h3 {
+    font-size: 0.8rem!important;
+  }
+
+  #conteudo > .article > .row > .box h1 {
+    font-size: 1.8rem!important;
+  }
 
 }
 

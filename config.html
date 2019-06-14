@@ -13,20 +13,21 @@
 
 <body>
 
-  <div id="menu">
+  <div id="menu" class="left show">
     <div class="user">
       <img src="./img/logo.png" alt="APAMS" height="100px">
       <h5>Bem vindo, Gabriel</h5>
     </div>
-    <nav>
-      <ul>
-        <li><i class="fas fa-home"></i>Home</li>
-        <li><i class="fas fa-th-list"></i>Postagens</li>
-        <li><i class="fas fa-bell"></i>Notificações</li>
-        <li class="action"><i class="fas fa-cog"></i>Configurações</li>
-        <li><i class="fas fa-sign-out-alt"></i>Sair</li>
-      </ul>
-    </nav>
+    <ul>
+      <li><i class="fas fa-home"></i>Home</li>
+      <li><i class="fas fa-th-list"></i>Postagens</li>
+      <li><i class="fas fa-bell"></i>Notificações</li>
+      <li><i class="fas fa-cog"></i>Configurações</li>
+      <li><i class="fas fa-sign-out-alt"></i>Sair</li>
+    </ul>
+    <a href="#" id="showmenu">
+      <i class="fa fa-align-justify"></i>
+    </a>
   </div>
 
   <div id="conteudo">
@@ -102,26 +103,26 @@
             <button type="submit" class="btn">Salvar</button>
           </form>
           <hr>
-          <div>
+          <div class="table-responsive">
             <div class="title-list">
               <div>
                 <h2>Listar Animais</h2>
               </div>
               <div class="procurar-animais">
                 <i class="fas fa-search"></i>
-                <input type="text" class="form-control" id="procurarAnimais" placeholder="Pesquisar">
+                <input type="text" class="form-control" id="procurarAnimais" placeholder="Pesquisar nome do animal">
               </div>
             </div>
             <table class="table text-center" id="tabelaAnimais">
               <thead>
                 <tr>
                   <th scope="col">#ID</th>
-                  <th scope="col"></th>
+                  <th class="resp-table" scope="col"></th>
                   <th scope="col">Nome</th>
                   <th scope="col">Porte</th>
                   <th scope="col">Tipo</th>
                   <th scope="col">Status</th>
-                  <th scope="col">Descrição</th>
+                  <th class="resp-table" scope="col">Descrição</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
                 </tr>
@@ -130,7 +131,7 @@
 
                 <tr>
                   <th scope="row">1</th>
-                  <td>
+                  <td class="resp-table">
                     <div class="avatar-list">
                       <img src="./img/avatar.png" alt="Avatar" height="50px;">
                     </div>
@@ -139,7 +140,7 @@
                   <td>Médio</td>
                   <td>Cachorro</td>
                   <td>Aguardando</td>
-                  <td>Thanos foi abandonado...</td>
+                  <td class="resp-table">Thanos foi abandonado...</td>
                   <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarAnimais" title="Editar"></i></td>
                   <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais" title="Remover"></i>
                   </td>
@@ -181,14 +182,14 @@
             <button type="submit" class="btn">Salvar</button>
           </form>
           <hr>
-          <div>
+          <div class="table-responsive">
             <div class="title-list">
               <div>
                 <h2>Usuários</h2>
               </div>
               <div class="procurar-animais">
                 <i class="fas fa-search"></i>
-                <input type="text" class="form-control" id="procurarProfile" placeholder="Pesquisar">
+                <input type="text" class="form-control" id="procurarProfile" placeholder="Pesquisar nome do usuário">
               </div>
             </div>
             <table class="table text-center" id="tabelaProfile">
@@ -196,10 +197,10 @@
                 <tr>
                   <th scope="col">#ID</th>
                   <th scope="col">Nome</th>
-                  <th scope="col">E-mail</th>
+                  <th class="resp-table" scope="col">E-mail</th>
                   <th scope="col">Contato</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Permissão</th>
+                  <th class="resp-table" scope="col">Status</th>
+                  <th class="resp-table" scope="col">Permissão</th>
                   <th scope="col"></th>
                   <th scope="col"></th>
                   <th scope="col"></th>
@@ -209,17 +210,15 @@
                 <tr>
                   <th scope="row">1</th>
                   <td>Gabriel Marcato</td>
-                  <td>gabrielomarcato@gmail.com</td>
+                  <td class="resp-table">gabrielomarcato@gmail.com</td>
                   <td>(66) 99614-0353</td>
-                  <td>Ativo</td>
-                  <td>Administrador</td>
+                  <td class="resp-table">Ativo</td>
+                  <td class="resp-table">Administrador</td>
                   <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile" title="Editar"></i></td>
                   <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile" title="Remover"></i>
                   </td>
-                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"
-                      title="Enviar e-mail"></i></td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile" title="Enviar e-mail"></i></td>
                 </tr>
-
               </tbody>
             </table>
           </div>

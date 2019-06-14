@@ -134,6 +134,17 @@ function editHtmlTbleSelectedRowProfile() {
 
 $(document).ready(function () {
 
+  $("#showmenu").click(function (e) {
+    $("#menu").toggleClass("show");
+  });
+  $("#menu a").click(function (event) {
+    if ($(this).next('ul').length) {
+      event.preventDefault();
+      $(this).next().toggle('fast');
+      $(this).children('i:last-child').toggleClass('fa-caret-down fa-caret-left');
+    }
+  });
+
   var maskBehavior = function (val) {
     return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
   },
