@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ADM APAMS</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 </head>
@@ -16,18 +17,52 @@
   <div id="menu" class="left show">
     <div class="user">
       <img src="./img/logo.png" alt="APAMS" height="100px">
-      <h5>Bem vindo, Gabriel</h5>
+      <h5>Bem vindo,<br> Gabriel Olveira Marcato!</h5>
     </div>
     <ul>
-      <li><i class="fas fa-home"></i>Home</li>
-      <li><i class="fas fa-th-list"></i>Postagens</li>
-      <li><i class="fas fa-bell"></i>Notificações</li>
-      <li><i class="fas fa-cog"></i>Configurações</li>
-      <li><i class="fas fa-sign-out-alt"></i>Sair</li>
+      <a href="">
+        <li><i class="fas fa-home"></i>Home</li>
+      </a>
+      <a href="">
+        <li><i class="fas fa-th-list"></i>Postagens</li>
+      </a>
+      <a href="">
+        <li><i class="fas fa-bell"></i>Notificações</li>
+      </a>
+      <a href="">
+        <li class="ativo"><i class="fas fa-cog"></i>Configurações</li>
+      </a>
+      <a href="">
+        <li><i class="fas fa-sign-out-alt"></i>Sair</li>
+      </a>
     </ul>
     <a href="#" id="showmenu">
       <i class="fa fa-align-justify"></i>
     </a>
+
+    <div class="ml-5 mr-3 alert alert-success alert-dismissible fade" id="alertSuccess" role="alert">
+      <strong>Mensagem</strong> 
+      <br> Cadastro concluido!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="ml-5 mr-3 alert alert-warning alert-dismissible fade" id="alertWarning" role="alert">
+      <strong>Mensagem</strong> 
+      <br> Edição concluida!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="ml-5 mr-3 alert alert-danger alert-dismissible fade" id="alertDanger" role="alert">
+      <strong>Mensagem</strong> 
+      <br> Remoção concluida!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div> 
   </div>
 
   <div id="conteudo">
@@ -47,6 +82,10 @@
         <li class="nav-item">
           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
             aria-selected="false">Usuários</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="patrocinio-tab" data-toggle="tab" href="#patrocinio" role="tab"
+            aria-controls="patrocinio" aria-selected="false">Patrocínio</a>
         </li>
       </ul>
 
@@ -108,10 +147,6 @@
               <div>
                 <h2>Listar Animais</h2>
               </div>
-              <div class="procurar-animais">
-                <i class="fas fa-search"></i>
-                <input type="text" class="form-control" id="procurarAnimais" placeholder="Pesquisar nome do animal">
-              </div>
             </div>
             <table class="table text-center" id="tabelaAnimais">
               <thead>
@@ -145,6 +180,7 @@
                   <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerAnimais" title="Remover"></i>
                   </td>
                 </tr>
+                
 
               </tbody>
             </table>
@@ -187,10 +223,6 @@
               <div>
                 <h2>Usuários</h2>
               </div>
-              <div class="procurar-animais">
-                <i class="fas fa-search"></i>
-                <input type="text" class="form-control" id="procurarProfile" placeholder="Pesquisar nome do usuário">
-              </div>
             </div>
             <table class="table text-center" id="tabelaProfile">
               <thead>
@@ -217,7 +249,64 @@
                   <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarProfile" title="Editar"></i></td>
                   <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile" title="Remover"></i>
                   </td>
-                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile" title="Enviar e-mail"></i></td>
+                  <td><i class="fas fa-envelope" data-toggle="modal" data-target="#getEmailProfile"
+                      title="Enviar e-mail"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="patrocinio" role="tabpanel" aria-labelledby="patrocinio-tab">
+          <div class="title-tab">
+            <h2>Cadastrar Patrocinadores</h2>
+          </div>
+          <form action="" method="" class="row" id="cadastrarPatrocinio">
+            <div class="form-group col-md-12">
+              <label>Nome</label>
+              <input type="text" class="form-control" name="namePatrocinio" id="namePatrocinio"
+                placeholder="Nome do patrocinador">
+            </div>
+            <div class="form-group col-md-6">
+              <label>E-mail</label>
+              <input type="email" class="form-control" name="emailPatrocinio" id="emailPatrocinio"
+                placeholder="E-mail do patrocinador">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Contato</label>
+              <input type="text" class="form-control celNum" name="celPatrocinio" id="celPatrocinio"
+                placeholder="(xx)xxxxx-xxxx">
+            </div>
+            <button type="submit" class="btn">Salvar</button>
+          </form>
+          <hr>
+          <div class="table-responsive">
+            <div class="title-list">
+              <div>
+                <h2>Patrocinadores</h2>
+              </div>
+            </div>
+            <table class="table text-center" id="tabelaPatrocinador">
+              <thead>
+                <tr>
+                  <th scope="col">#ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">E-mail</th>
+                  <th scope="col">Contato</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>TopSapp</td>
+                  <td>email@email.com.br</td>
+                  <td>(99) 99999-9999</td>
+                  <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarPratrocinio" title="Editar"></i>
+                  </td>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile" title="Remover"></i>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -226,7 +315,6 @@
 
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Modal -->
@@ -402,13 +490,128 @@
     </div>
   </div>
 
+  <div class="modal fade" id="editarPratrocinio" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar patrocinador</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="" id="editarPatrocinador">
+            <div class="form-group" id="idModalEditarPatrocinador">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idPatrocinador">
+            </div>
+            <div class="form-group">
+              <label>Nome</label>
+              <input type="text" class="form-control" name="nomePatrocinador" id="nomePatrocinador"
+                placeholder="Nome do patrocinador">
+            </div>
+            <div class="form-group">
+              <label>E-mail</label>
+              <input type="email" class="form-control" name="mailPatrocinador" id="mailPatrocinador"
+                placeholder="E-mail do patrocinador">
+            </div>
+            <div class="form-group">
+              <label>Celular</label>
+              <input type="text" class="form-control celNum" id="celPatrocinador" placeholder="(xx) xxxxx-xxxx">
+            </div>
+            <button type="submit" class="btn btn-block btn-modal">Salvar</button>
+            <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Sair</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="js/localization/messages_pt_BR.js"></script>
   <script type="text/javascript" src="js/jquery.mask.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <script src="js/index.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#tabelaAnimais').DataTable({
+        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        "ordering": false,
+        "language": {
+          "decimal": "",
+          "emptyTable": "Nenhuma informação encontrada.",
+          "info": " ",
+          "infoEmpty": " ",
+          "infoFiltered": " ",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Número de posts por página _MENU_",
+          "loadingRecords": "Carregando...",
+          "processing": "Processando...",
+          "search": "Procurar",
+          "zeroRecords": "Nenhuma informação encontrada.",
+          "paginate": {
+            "first": "Primeira",
+            "last": "Última",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
+        },
+      });
+      $('#tabelaProfile').DataTable({
+        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        "ordering": false,
+        "language": {
+          "decimal": "",
+          "emptyTable": "Nenhuma informação encontrada.",
+          "info": " ",
+          "infoEmpty": " ",
+          "infoFiltered": " ",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Número de posts por página _MENU_",
+          "loadingRecords": "Carregando...",
+          "processing": "Processando...",
+          "search": "Procurar",
+          "zeroRecords": "Nenhuma informação encontrada.",
+          "paginate": {
+            "first": "Primeira",
+            "last": "Última",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
+        },
+      });
+      $('#tabelaPatrocinador').DataTable({
+        "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        "ordering": false,
+        "language": {
+          "decimal": "",
+          "emptyTable": "Nenhuma informação encontrada.",
+          "info": " ",
+          "infoEmpty": " ",
+          "infoFiltered": " ",
+          "infoPostFix": "",
+          "thousands": ",",
+          "lengthMenu": "Número de posts por página _MENU_",
+          "loadingRecords": "Carregando...",
+          "processing": "Processando...",
+          "search": "Procurar",
+          "zeroRecords": "Nenhuma informação encontrada.",
+          "paginate": {
+            "first": "Primeira",
+            "last": "Última",
+            "next": "Próximo",
+            "previous": "Anterior"
+          }
+        },
+      });
+    });
+  </script>
 </body>
 
 </html>

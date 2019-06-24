@@ -1,30 +1,3 @@
-/*** Input Pesquisa ***/
-window.onload = function () {
-  //Busca Animal
-  var filtroAnimais = document.getElementById('procurarAnimais');
-  var tabelaAnimais = document.getElementById('tabelaAnimais');
-  filtroAnimais.onkeyup = function () {
-    let nomeFiltro = filtroAnimais.value;
-    for (let i = 1; i < tabelaAnimais.rows.length; i++) {
-      let conteudoCelula = tabelaAnimais.rows[i].cells[2].innerText;
-      let corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-      tabelaAnimais.rows[i].style.display = corresponde ? '' : 'none';
-    }
-  };
-  //Busca usuario
-  var filtroProfile = document.getElementById('procurarProfile');
-  var tabelaProfile = document.getElementById('tabelaProfile');
-  filtroProfile.onkeyup = function () {
-    let nomeFiltro = filtroProfile.value;
-    for (let i = 1; i < tabelaProfile.rows.length; i++) {
-      let conteudoCelula = tabelaProfile.rows[i].cells[2].innerText;
-      let corresponde = conteudoCelula.toLowerCase().indexOf(nomeFiltro) >= 0;
-      tabelaProfile.rows[i].style.display = corresponde ? '' : 'none';
-    }
-  };
-}
-
-
 /*** Input selecionar imagem ***/
 const fileSelect = document.getElementById("fileSelect"),
   fileElem = document.getElementById("fileElem"),
@@ -99,6 +72,21 @@ function editHtmlTbleSelectedRow() {
   }
 }
 
+function cadastroSuccess() {
+  var element = document.getElementById("alertSuccess");
+  element.classList.add("show");
+}
+
+function editarSuccess() {
+  var element = document.getElementById("alertWarning");
+  element.classList.add("show");
+}
+
+function removerSuccess() {
+  var element = document.getElementById("alertDanger");
+  element.classList.add("show");
+}
+
 
 /*** Valores Modal Editar Profile ***/
 var rIndexProfile, tabelaProfile = document.getElementById("tabelaProfile");
@@ -131,6 +119,36 @@ function editHtmlTbleSelectedRowProfile() {
     tabelaProfile.rows[rIndexProfile].cells[5].innerHTML = tipoProfile;
   }
 }
+
+/*** Valores Modal Editar Patrocinador ***/
+var rIndexPatrocinador, tabelaPatrocinador = document.getElementById("tabelaPatrocinador");
+
+function selectedRowToInputPatrocinador() {
+  for (var i = 1; i < tabelaPatrocinador.rows.length; i++) {
+    tabelaPatrocinador.rows[i].onclick = function () {
+      rIndexPatrocinador = this.rowIndexPatrocinador;
+      document.getElementById("idPatrocinador").value = this.cells[0].innerHTML;
+      document.getElementById("nomePatrocinador").value = this.cells[1].innerHTML;
+      document.getElementById("mailPatrocinador").value = this.cells[2].innerHTML;
+      document.getElementById("celPatrocinador").value = this.cells[3].innerHTML;
+    };
+  }
+}
+selectedRowToInputPatrocinador();
+
+function editHtmlTbleSelectedRowPatrocinador() {
+  var idPatrocinador = document.getElementById("idPatrocinador").value,
+    nomePatrocinador = document.getElementById("nomePatrocinador").value,
+    emailPatrocinador = document.getElementById("mailPatrocinador").value,
+    celPatrocinador = document.getElementById("celPatrocinador").value;
+  if (!checkEmptyInput()) {
+    tabelaPatrocinador.rows[rIndexPatrocinador].cells[0].innerHTML = idPatrocinador;
+    tabelaPatrocinador.rows[rIndexPatrocinador].cells[1].innerHTML = nomePatrocinador;
+    tabelaPatrocinador.rows[rIndexPatrocinador].cells[2].innerHTML = emailPatrocinador;
+    tabelaPatrocinador.rows[rIndexPatrocinador].cells[3].innerHTML = celPatrocinador;
+  }
+}
+
 
 $(document).ready(function () {
 
@@ -174,7 +192,7 @@ $(document).ready(function () {
       },
       description: {
         required: true,
-        maxlength: 100,
+        maxlength: 300,
         minlength: 5,
       }
     }
@@ -199,6 +217,18 @@ $(document).ready(function () {
         }
       }
     }),
+    $("#cadastrarPatrocinio").validate({
+      rules: {
+        namePatrocinio: {
+          required: true,
+          maxlength: 100,
+          minlength: 2,
+        },
+        celPatrocinio: {
+          required: true,
+        }
+      }
+    }),
     $("#editarAnimal").validate({
       rules: {
         nameAnimal: {
@@ -217,7 +247,7 @@ $(document).ready(function () {
         },
         descriptionAnimal: {
           required: true,
-          maxlength: 60,
+          maxlength: 300,
           minlength: 5,
         }
       }
@@ -238,6 +268,18 @@ $(document).ready(function () {
           minlength: 4,
         },
         tipoConta: {
+          required: true,
+        }
+      }
+    }),
+    $("#editarPatrocinador").validate({
+      rules: {
+        nomePatrocinador: {
+          required: true,
+          maxlength: 100,
+          minlength: 2,
+        },
+        celPatrocinador: {
           required: true,
         }
       }
