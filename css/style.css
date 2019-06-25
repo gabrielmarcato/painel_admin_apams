@@ -223,42 +223,58 @@ td {
 #conteudo > .article form select, 
 #conteudo > .article form textarea  {border-color: #f93; color: #37474f;}
 
-#conteudo > .article form input[type=file] { display: none; }
+#conteudo > .article form input[type=file] {
+  border: 1px solid #f93;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#conteudo > .article form input[type=file] button {
+  border-radius: 5px;
+}
+
+#conteudo > .article form input[type=file]#fileElem { display: none; }
 
 #conteudo > .article form label {
   font-weight: bold;
   color: #37474f;
 }
 
-#conteudo > .article form #fileSelect .badge-primary {  
+#conteudo > .article form #fileSelect .badge-primary,
+#conteudo > .article form #fileSelectPatrocinio .badge-primary {  
   text-decoration: none;
   font-weight: bold;
   background-color: #37474f;
   color: #FFF;
 }
 
-#conteudo > .article form #fileList {
+#conteudo > .article form #fileList,
+#conteudo > .article form #fileListPatrocinio {
   border: 1px solid #f93;
   min-height: 38px;
   border-radius: 5px;
   margin-top: 8px;
 }
 
-#conteudo > .article form #fileList p {
+#conteudo > .article form #fileList p,
+#conteudo > .article form #fileListPatrocinio p {
   padding: 5px 15px;
   margin-bottom: 0;
 }
 
-#conteudo > .article form #fileList ul {
+#conteudo > .article form #fileList ul,
+#conteudo > .article form #fileListPatrocinio ul {
   margin: 0;
 }
 
-#conteudo > .article form #fileList ul li {
+#conteudo > .article form #fileList ul li,
+#conteudo > .article form #fileListPatrocinio ul li {
   list-style: none;
   padding: 10px;
 }
 
-#conteudo > .article form #fileList ul li span {
+#conteudo > .article form #fileList ul li span,
+#conteudo > .article form #fileListPatrocinio ul li span {
   padding: 10px;
   font-weight: bold;
 }
