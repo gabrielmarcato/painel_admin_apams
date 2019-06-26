@@ -243,6 +243,8 @@ function editHtmlTbleSelectedRow() {
   }
 }
 
+
+
 /*** Valores Modal Editar Profile ***/
 var rIndexProfile, tabelaProfile = document.getElementById("tabelaProfile");
 
@@ -337,4 +339,26 @@ function editHtmlTbleSelectedRowNotificacao() {
   }
 }
 
+
+/*** Valores Modal Remover Animais ***/
+var rIndexAnimaisRemover, tableAnimaisRemover = document.getElementById("tabelaAnimais");
+
+function selectedRowToInputAnimaisRemover() {
+  for (var i = 1; i < tableAnimaisRemover.rows.length; i++) {
+    tableAnimaisRemover.rows[i].onclick = function () {
+      rIndexAnimaisRemover = this.rIndexAnimaisRemover;
+      document.getElementById("idAnimalRemover").value = this.cells[0].innerHTML;
+    };
+  }
+}
+selectedRowToInputAnimaisRemover();
+
+function editHtmlTbleSelectedRowAnimaisRemover() {
+  var idAnimalRemover = document.getElementById("idAnimalRemover").value,
+
+  if (!checkEmptyInput()) {
+    tableAnimaisRemover.rows[rIndexAnimaisRemover].cells[0].innerHTML = idAnimalRemover;
+
+  }
+}
 

@@ -316,7 +316,7 @@
                   <td>(99) 99999-9999</td>
                   <td><i class="fas fa-edit" data-toggle="modal" data-target="#editarPratrocinio" title="Editar"></i>
                   </td>
-                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerProfile" title="Remover"></i>
+                  <td><i class="fas fa-trash-alt" data-toggle="modal" data-target="#removerPatrocinio" title="Remover"></i>
                   </td>
                 </tr>
               </tbody>
@@ -402,11 +402,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Deseja remover este cadastro?<p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-block btn-modal">Sim</button>
-          <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>
+          <form action="" method="">
+            <p>Deseja remover este cadastro?<p>
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idAnimalRemover" placeholder="Digite o ID do animal que será removido!">
+            </div> 
+            <button type="button" class="btn btn-block btn-modal">Remover</button>
+            <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>  
+          </form>
         </div>
       </div>
     </div>
@@ -472,11 +476,15 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Deseja remover este cadastro?<p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-block btn-modal">Sim</button>
-          <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>
+          <form action="" method="">
+            <p>Deseja remover este cadastro?<p>
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idAnimalRemover" placeholder="Digite o ID do cadastro que será removido!">
+            </div> 
+            <button type="button" class="btn btn-block btn-modal">Remover</button>
+            <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>  
+          </form>
         </div>
       </div>
     </div>
@@ -532,6 +540,30 @@
             </div>
             <button type="submit" class="btn btn-block btn-modal">Salvar</button>
             <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Sair</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="removerPatrocinio" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Remover patrocinador</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="">
+            <p>Deseja remover este cadastro?<p>
+            <div class="form-group">
+              <label>ID</label>
+              <input type="text" class="form-control" id="idAnimalRemover" placeholder="Digite o ID do cadastro que será removido!">
+            </div> 
+            <button type="button" class="btn btn-block btn-modal">Remover</button>
+            <button type="button" class="btn btn-block btn-exit" data-dismiss="modal">Não</button>  
           </form>
         </div>
       </div>
